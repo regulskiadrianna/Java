@@ -1,0 +1,22 @@
+//This program is a simple program that adds two numbers together, finds the remainder, and displays a message based on the output.
+
+public class Main {
+
+    public static void main(String[] args) {
+        double number1 = 20.00d;
+        double number2 = 80.00d;
+        double total = (number1 + number2) * 100.00;
+        System.out.println("The total of two numbers times 100 is " + total);
+        double remainder = total % 40.00d;
+        System.out.println("The remainder is: " + remainder);
+        boolean noRemainder = (remainder == 0) ? true: false;
+        System.out.println("The noRemainder is: " + noRemainder);
+        if (!noRemainder){
+            System.out.println("Got some remainder");
+        }
+        
+    }
+}
+
+
+
