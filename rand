@@ -1,0 +1,41 @@
+#include <list>
+using std::list;
+#include<functional>
+using std::function;
+
+template<typename T>
+function<T(T)>compose(function<T(T)>g, function<T(T)>f)
+{
+    return[=](T e){return f(g(e));};
+}
+
+template<typename T>
+list<T>map(list<T>L, function<T(T)>f )
+{
+    list<T> R;
+    for (auto & e : L)
+    {
+        R.push_back(f(e));
+    }
+    return R;
+}
+
+template<typename T>
+list<T>filter(list<T> L, function<bool(T)>P)
+{
+    list<T>R;
+    for(auto & e : L)
+    {
+        if (p(e)) R.push_back(e);
+    }
+    return R;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
