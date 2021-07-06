@@ -1,0 +1,117 @@
+/*
+This program is an Imperial to Metric Units Conversion System.
+*/
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Please enter your full name: ");
+        String name = scan.nextLine();
+        System.out.println("Hello " + name + "! Welcome to the Units Conversion System.");
+        System.out.println("Please enter a number to calculate the following:\n " +
+                "1. Convert Fahrenheit to Celsius\n " +
+                "2. Convert Fahrenheit to Kelvin\n " +
+                "3. Convert Pounds to Kilograms\n " +
+                "4. Convert Pounds to Grams\n " +
+                "5. Convert Miles to Kilometers\n " +
+                "6. Convert Feet to Meters\n " +
+                "7. Convert Gallons to Liters\n " +
+                "8. Convert Pints to Milliliter\n " +
+                "9. Exit");
+        int option = 0;
+        do{
+            System.out.print("Please enter your selection: ");
+            try {
+
+                DecimalFormat df = new DecimalFormat("0.00");
+                option = scan.nextInt();
+                switch (option) {
+                    case 1:
+                        System.out.println("You have chosen option 1. Convert Fahrenheit to Celsius.");
+                        System.out.print("Please input a degree in Fahrenheit:  ");
+                        double fahrenheit = scan.nextDouble();
+                        double celsius = ((5 * (fahrenheit - 32.0)) / 9.0);
+                        System.out.println(fahrenheit + " degree Fahrenheit is equal to " + df.format(celsius) + "C");
+                        break;
+                    case 2:
+                        System.out.println("You have chosen option 2. Convert Fahrenheit to Kelvin.");
+                        System.out.print("Please input a degree in Fahrenheit:  ");
+                        double fah = scan.nextDouble();
+                        double kelvin = 273.15d + ((fah - 32.0d) * (5.0d / 9.0d));
+                            System.out.println(fah + " degree Fahrenheit is equal to " + df.format(kelvin) + "K");
+                        break;
+                    case 3:
+                        System.out.println("You have chosen option 3. Convert Pounds to Kilograms");
+                        System.out.print("Please input the pounds number: ");
+                        double pounds = scan.nextDouble();
+                        double kilograms = pounds * 0.45359237 ;
+                        System.out.println(pounds + " pounds is " + df.format(kilograms) + "kg.");
+                        break;
+                    case 4:
+                        System.out.println("You have chosen option 4. Convert Pounds to Grams.");
+                        System.out.print("Please input the pounds number: ");
+                        double pound = scan.nextDouble();
+                        double grams = pound / 0.0022046;
+                        System.out.println(pound + " pounds is equal to " + df.format(grams) + "g.");
+                        break;
+                    case 5:
+                        System.out.println("You have chosen option 5. Convert Miles to Kilometers.");
+                        System.out.print("Please input the miles number: ");
+                        double miles = scan.nextDouble();
+                        double kilometers = miles * 1.6;
+                        System.out.println(miles + " miles equals " + df.format(kilometers) + " km.");
+                        break;
+                    case 6:
+                        System.out.println("You have chosen option 6. Convert Feet to Meters.");
+                        System.out.print("Please enter the feet number: ");
+                        double feet = scan.nextDouble();
+                        double meters = feet / 3.2808;
+                        System.out.println(feet + " feet is equal to " + df.format(meters) + "m.");
+                        break;
+                    case 7:
+                        System.out.println("You have chosen option 7. Convert Gallons to Liters. ");
+                        System.out.print("Please enter the amount of gallons: ");
+                        double gallons = scan.nextDouble();
+                        double liters = gallons * 3.7854;
+                        System.out.println(gallons + " gallons equals " + df.format(liters) + "L. ");
+                        break;
+                    case 8:
+                        System.out.println("You have chosen option 8. Convert Pints to Milliliter.");
+                        System.out.print("Please enter the number of pints: ");
+                        double pints = scan.nextDouble();
+                        double milliliter = pints * 473.176473;
+                        System.out.println(pints + " pints equals " + df.format(milliliter) + "mm.");
+                        break;
+                    case 9:
+                        System.out.println("You have chosen option 9. Exiting the program.");
+                        break;
+                    default:
+                        System.out.println("Invalid data. Please try again.");
+                        break;
+
+                }
+
+            }
+
+            catch (Exception e) {
+                System.out.println("Invalid data." + e);
+                System.out.println("Please try again.");
+                System.out.println("Type a valid number from 1-9. ");
+
+                scan.next();
+
+
+            }
+        } while (option != 9);
+        scan.close();
+    }
+}
+
+
+
