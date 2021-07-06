@@ -1,0 +1,114 @@
+/*
+This program inserts 100 random integers from 1 to 1000. The numbers are inserted into a Java LinkedList object.
+The program sorts the elements from minimum to maximum values. It calculates the sum, average, and median values.
+The result is displayed in a Java GUI window.
+ */
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Random;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
+
+public class Main {
+    public static void main(String[] args) {
+        Main start = new Main();
+    }
+
+    JButton integerAdd;
+    JTextArea display;
+
+    public Main()
+    {
+        JPanel middlePanel = new JPanel ();
+        middlePanel.setBorder ( new TitledBorder ( new EtchedBorder (), "Display Window" ) );
+
+        final JFrame frame = new JFrame("Text Area");
+
+        integerAdd = new JButton("Insert 100 Integers");
+
+        display = new JTextArea(20,50);
+        display.setLineWrap(true);
+        display.setEditable (false);
+        JScrollPane slide = new JScrollPane ( display );
+        slide.setVerticalScrollBarPolicy (ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        middlePanel.add (slide);
+        middlePanel.add(integerAdd);
+
+        PrintStream consoleWindow = new PrintStream(new CustomOutputStream(display));
+        System.setOut(consoleWindow);
+        System.setErr(consoleWindow);
+
+        JFrame finalFrame = new JFrame ();
+        finalFrame.add (middlePanel);
+        finalFrame.pack ();
+        finalFrame.setLocationRelativeTo ( null );
+        finalFrame.setVisible ( true );
+
+        LinkedList integerNumbers = new LinkedList();
+        Random randomNumber = new Random();
+
+        integerAdd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                for (int i = 0; i < 100; i++) {
+                    int pick = randomNumber.nextInt(1000);
+                    integerNumbers.add(pick);
+                }
+                Collections.sort(integerNumbers);
+                int total = calculateTotal(integerNumbers);
+                int average = total / 100;
+                int median = (int) integerNumbers.get(50);
+                int minimum = (int) integerNumbers.getFirst();
+                int maximum = (int) integerNumbers.getLast();
+                System.out.println("Total of integers: " + total + "\nMedian of integers: " + median + "\nAverage of integers: " +
+                        average + "\nMinimum value: " + minimum + "\nMaximum value: " + maximum);
+                System.out.println("\nFull List of Integers Generated: "
+                        + "\n**************************************************************************** \n" + integerNumbers);
+            }
+        });
+    }
+
+    public int calculateTotal(LinkedList<Integer> integers) {
+        int total = 0;
+
+        for (Integer i : integers) {
+            total += i;
+        }
+
+        return total;
+    }
+    public class CustomOutputStream extends OutputStream {
+        private JTextArea textDisplayArea;
+
+        public CustomOutputStream(JTextArea textDisplayArea) {
+            this.textDisplayArea = textDisplayArea;
+        }
+
+        @Override
+        public void write(int a) throws IOException {
+           textDisplayArea.append(String.valueOf((char)a));
+            textDisplayArea.setCaretPosition(textDisplayArea.getDocument().getLength());
+            textDisplayArea.update(textDisplayArea.getGraphics());
+        }
+    }
+}
+
+
