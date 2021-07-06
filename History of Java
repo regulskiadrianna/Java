@@ -1,0 +1,30 @@
+History of Java
+
+  The history of Java is quite fascinating. At the beginning of the existence, Java’s purpose
+was to be used for digital devices such as televisions however, the language was suited for a
+greater purpose in the world. At first Java was suited for internet programming but currently it is
+also used for mobile devices, games, e-business solutions, and much more. The father of Java is
+James Gosling who created the following principles of Java with his team: “Simple, Robust,
+Portable, Platform-independent, Secured, High Performance, Multithreaded, Architecture Neutral,
+Object-Oriented, Interpreted, and Dynamic” (Jaiswal). From the principles, one can easily guess
+that Java is much different from procedural languages and brings many advantages in the
+programming world.
+
+  The language is super simple to write, compile, and debug. It provides improved software
+development productivity when comparing to procedural languages. The reason why is because the
+programs are divided into smaller parts called objects that can be extended with new behaviors and
+attributes creating a possibility of reusing the code across the applications. Also, with the Java
+language, it is easier to maintain the code. The language is platform-independent which in other
+words means that it does not need any special software to be installed except for the JVM to be
+present on the machine. The language is compiled into bytecode which is then interpreted by JVM
+as described earlier. Another advantage of the language is that it is very secure because it does not
+have any explicit pointers. The language comes with rich libraries of objects and code developed
+during projects (IBM Knowledge Center). Overall, Java is a great and powerful language that is
+very useful in today’s world.
+
+Works Cited
+Advantages of Java. (n.d.). IBM Knowledge Center.
+https://www.ibm.com/support/knowledgecenter/sl/ssw_aix_72/performance/
+advantages_java.html
+Jaiswal, S. (n.d.). History of Java - Javatpoint. Retrieved January 22, 2021, from
+https://www.javatpoint.com/history-of-java
