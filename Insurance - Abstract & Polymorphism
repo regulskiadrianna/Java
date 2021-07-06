@@ -1,0 +1,111 @@
+/*
+This program has an abstract Insurance class from which Life and Health class inherit. In the main program, the user is asked to pick Life or Health insurance
+and the cost is displayed of the type of insurance and the cost per month at the end when the user chooses to exit.
+*/
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UseInsurance {
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to the program!");
+        ArrayList<Insurance> insuranceType = new ArrayList<>();
+        Scanner userInput = new Scanner(System.in);
+        int option;
+        do {
+            System.out.println("Please select from the following list: \n1. Life Insurance \n2. Health Insurance \n3.Exit");
+            option = userInput.nextInt();
+            switch (option) {
+                case 1:
+                    insuranceType.add(new Life());
+                    
+                    break;
+                case 2:
+                    insuranceType.add(new Health());
+                    break;
+                case 3:
+                    System.out.println("Exiting the program.\n");
+                    break;
+            }
+        } while (option != 3);
+        insuranceType.forEach(insurance -> insurance.display());
+    }
+}
+
+public class Life extends Insurance {
+
+    public Life() {
+        super("Life");
+    }
+
+    public void setCost() {
+
+        monthlyPrice = 36;
+    }
+
+    public void display() {
+
+        System.out.println("Insurance Type: "+ getInsuranceType());
+        System.out.println("Cost per month: $ "+ getMonthlyPrice());
+
+    }
+
+}
+
+
+public abstract class Insurance {
+
+    protected String insuranceType;
+    protected double monthlyPrice;
+
+
+    public Insurance(String insuranceType) {
+        this.insuranceType = insuranceType;
+        this.setCost();
+    }
+
+    public String getInsuranceType() {
+        return insuranceType;
+    }
+
+    public double getMonthlyPrice() {
+        return monthlyPrice;
+    }
+
+    public abstract void setCost();
+    public abstract void display();
+}
+
+public class Health extends Insurance{
+
+    public Health() {
+        super("Health");
+    }
+
+    public void setCost() {
+
+        monthlyPrice = 196;
+
+    }
+    public void display() {
+
+        System.out.println("Insurance type: "+ getInsuranceType());
+        System.out.println("Cost per month: $ "+ getMonthlyPrice());
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
