@@ -1,0 +1,194 @@
+/*
+This program has three classes called Circle, RightTriangle, and Rectangle. Each calcucates it's own area.
+The program uses an ArrayList to display 10 random shapes.
+*/
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class Main {
+
+    public static void main(String[] args) {
+        ArrayList<Object> arrayOfObjects = new ArrayList<>();
+
+        for (int i = 0; i < 10; i++) {
+
+            int index = (int) (Math.random() * 3);
+            if (index == 0) {
+                Circle c = new Circle();
+                arrayOfObjects.add(c);
+            } else if (index == 1) {
+                RightTriangle rt = new RightTriangle();
+                arrayOfObjects.add(rt);
+            } else if (index == 2) {
+                Rectangle r = new Rectangle();
+                arrayOfObjects.add(r);
+            }
+        }
+        for (int i = 0; i < arrayOfObjects.size(); i++) {
+            System.out.print(arrayOfObjects.get(i));
+            System.out.println("");
+        }
+    }
+
+}
+
+
+public class Circle {
+    private double radius = 2.0;
+
+    public Circle(){
+        super();
+    }
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double area(){
+        return (3.142 * radius *radius);
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" + "Area = " + area() + '}';
+    }
+}
+
+
+public class Rectangle {
+    private double length = 10.0;
+    private double width = 3.50;
+
+    public Rectangle(){
+        super();
+    }
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double area(){
+        return (length * width);
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" + "Area = " + area() + '}';
+    }
+}
+
+
+public class RightTriangle {
+    private double width = 3.5;
+    private double height = 7.0;
+
+    public RightTriangle(){
+        super();
+    }
+
+    public RightTriangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double area(){
+        return (0.5 * width * height);
+    }
+
+    @Override
+    public String toString() {
+        return "RightTriangle{" + "Area = " + area() + '}';
+    }
+}
+
+
+
+
+Response:
+
+Classes and objects in Java programming are what make up object-oriented programming. 
+Classes are like blueprints for how things are created together and an object describes states and behaviors. 
+For example, a car is an object that can consist of the type of car, color, year, how fast it is, behavior, etc. 
+Using classes and objects is the best thing one could invent because you can reuse the code multiple of times making it easier to work faster.
+In addition to that troubleshooting is easier. Even though it sounds amazing, some people find it difficult to learn because it is very complex.
+
+UML Diagrams:
+
+Circle
+-radius: double
+Circle()
+Circle(radius)
+getradius(): double
+setradius(double)
+area(): double
+toString(): String
+
+RightTriangle
+-width: double
+-height: double
+RightTriangle()
+RightTriangle(width, height)
+setwidth(double)
+setheight(double)
+getwidth(): double
+getheight(): double
+area(): double
+toString(): String
+
+Rectangle
+-length: double
+-width: double
+Rectangle()
+Rectangle(length, width)
+setwidth(double)
+setlength(double)
+getwidth(): double
+getlength(): double
+area(): double
+toString(): String
+
+
+
+
