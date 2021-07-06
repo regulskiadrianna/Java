@@ -1,6 +1,5 @@
 /*
 This program uses serialization. The program synthesizes the presenter's program. It uses and collects certain information.
-Author: Adrianna Regulski
  */
 
 import java.io.FileInputStream;
