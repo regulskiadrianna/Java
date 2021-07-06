@@ -4,9 +4,6 @@ core functions that are essential to the daily operations of the Luxury Vacation
 The program consists of ships, cruises, and passengers. The company does not own ships however, it creates
 cruises using available ships. When a ship is places in service, it is available for cruises.
 Passengers can be added to cruises. A menu is displayed to show different options a user can select from.
-
-Author: Adrianna Regulski
-Task: Final project
 */
 
 import java.util.ArrayList;
