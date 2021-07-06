@@ -1,0 +1,243 @@
+/*
+The program uses a java ArrayList to create an array of Account that stores objects of Services and objects of Supplies. After answering the questions, the program
+calculates the total and displays the message back to the user.
+*/
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Main {
+    static int option;
+    static String fullName;
+    static String DOB;
+    static int accountNum;
+    static double numberOfHours;
+    static double ratePerHour;
+    static double numberOfItems;
+    static double pricePerItem;
+
+    public static void main(String[] args) {
+        Scanner userResponse = new Scanner(System.in);
+        System.out.println("Welcome to the Homework 5 program. Please answer each question below: ");
+        System.out.print("Please enter your full name: ");
+        String fullName = userResponse.nextLine();
+        System.out.print("Please enter your DOB: ");
+        String DOB = userResponse.nextLine();
+        System.out.print("Please enter your Account Number: ");
+        int accountNum = userResponse.nextInt();
+
+        boolean homework5  = true;
+        while (homework5) {
+            homework5 = goToMenu();
+        }
+    }
+
+    public static boolean goToMenu() {
+        Scanner userResponse = new Scanner(System.in);
+        System.out.println("Please pick a number from the following menu to proceed:  \n 1. Services \n 2. Supplies \n 3. Exit ");
+        option = userResponse.nextInt();
+        menu();
+        return false;
+    }
+
+    public static void menu() {
+        Scanner userResponse = new Scanner(System.in);
+        ArrayList<Object> Account = new ArrayList<>();
+        switch (option) {
+            case 1:
+                System.out.print("Please enter the number of hours of the service: ");
+                numberOfHours = userResponse.nextDouble();
+                System.out.print("Please enter the hourly rate: ");
+                ratePerHour = userResponse.nextDouble();
+                Services service = new Services(fullName, DOB, accountNum, numberOfHours, ratePerHour);
+                Account.add(service);
+                System.out.print("To add more press 1, to finish press 2: ");
+                int answer = userResponse.nextInt();
+                switch (answer){
+                    case 1:
+                        menu();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 2:
+                System.out.print("Please enter the number of items purchased: ");
+                numberOfItems = userResponse.nextDouble();
+                System.out.print("Please enter the price per item: ");
+                pricePerItem = userResponse.nextDouble();
+                Supplies supply = new Supplies(fullName, DOB, accountNum, numberOfItems, pricePerItem);
+                Account.add(supply);
+                System.out.print("To add more press 1, to finish press 2: ");
+                answer = userResponse.nextInt();
+                switch (answer){
+                    case 1:
+                        menu();
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+
+        for (int i = 0; i < Account.size(); i++) {
+            System.out.print(Account.get(i));
+        }
+    }
+}
+
+
+public class Account {
+    protected String fullName;
+    protected String DOB;
+    protected int accountNum;
+
+    public Account() {
+        super();
+    }
+
+    public Account(String fullName, String DOB, int accountNum) {
+        this.fullName = fullName;
+        this.DOB = DOB;
+        this.accountNum = accountNum;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
+    }
+
+    public int getAccountNum() {
+        return accountNum;
+    }
+
+    public void setAccountNum(int accountNum) {
+        this.accountNum = accountNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Your name is " + fullName + ". Your account number is " + accountNum + "Your DOB is " + DOB;
+    }
+}
+
+
+
+public class Services extends Account {
+    private double numberOfHours;
+    private double ratePerHour;
+
+    public Services() {
+        super();
+    }
+
+    public Services(double numberOfHours, double ratePerHour) {
+        this.numberOfHours = numberOfHours;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public Services(String fullName, String DOB, int accountNum, double numberOfHours, double ratePerHour) {
+        super(fullName, DOB, accountNum);
+        this.numberOfHours = numberOfHours;
+        this.ratePerHour = ratePerHour;
+    }
+
+    public double getNumberOfHours() {
+        return numberOfHours;
+    }
+
+    public void setNumberOfHours(double numberOfHours) {
+        this.numberOfHours = numberOfHours;
+    }
+
+    public double getRatePerHour() {
+        return ratePerHour;
+    }
+
+    public void setRatePerHour(double ratePerHour) {
+        this.ratePerHour = ratePerHour;
+    }
+
+    public double calculateTotalSales() {
+        return numberOfHours * ratePerHour;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Services: " +
+                "The number of hours you have is " + numberOfHours +
+                " hours. The rate per hour is $ " + ratePerHour +
+                ". The total Sales is $" + calculateTotalSales()+ "\n";
+    }
+
+}
+
+
+public class Supplies extends Account {
+    private double numberOfItems;
+    private double pricePerItem;
+
+    public Supplies() {
+        super();
+    }
+
+    public Supplies(double numberOfItems, double pricePerItem) {
+        this.numberOfItems = numberOfItems;
+        this.pricePerItem = pricePerItem;
+    }
+
+    public Supplies(String fullName, String DOB, int accountNum, double numberOfItems, double pricePerItem) {
+        super(fullName, DOB, accountNum);
+        this.numberOfItems = numberOfItems;
+        this.pricePerItem = pricePerItem;
+    }
+
+    public double getNumberOfItems() {
+        return numberOfItems;
+    }
+
+    public void setNumberOfItems(double numberOfItems) {
+        this.numberOfItems = numberOfItems;
+    }
+
+    public double getPricePerItem() {
+        return pricePerItem;
+    }
+
+    public void setPricePerItem(double pricePerItem) {
+        this.pricePerItem = pricePerItem;
+    }
+
+    public double calculateTotalSales() {
+        return numberOfItems * pricePerItem;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplies: " +
+                "The number of items you have is " + numberOfItems +
+                ". The price of each item is " + pricePerItem + ". The total Sales is $" + calculateTotalSales() +
+                "\n";
+
+    }
+}
+
+
+
+
+
+
