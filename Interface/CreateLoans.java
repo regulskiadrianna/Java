@@ -1,7 +1,6 @@
 /*
 This program tracks all new construction loans. The application calculates the total amount owed at the due date.
-Author: Adrianna Regulski
- */
+*/
 
 
 import java.util.Scanner;
