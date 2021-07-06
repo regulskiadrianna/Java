@@ -1,0 +1,191 @@
+/*
+This program consists of an abstract super class called GeometricShape that has three subclasses called
+Circle, Square,and Rhombus that inherit from it. The program uses an ArrayList to loop through 15 shapes at random.
+At the end it displays the name of each shape selected with it's calculated Area.
+The output has the chance to be saved to any file the user types in.
+*/
+
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to the program!");
+        ArrayList<GeometricShape> shapes = new ArrayList<GeometricShape>();
+        Random randomNumber = new Random();
+        for (int i = 0; i < 15; i++) {
+            int number = randomNumber.nextInt(4-1)+1;
+            switch (number){
+                case 1:
+                    shapes.add(new Circle());
+                    break;
+                case 2:
+                    shapes.add(new Square());
+                    break;
+                case 3:
+                    shapes.add(new Rhombus());
+                    break;
+            }
+        }
+
+        for (GeometricShape geometric_shape : shapes) {
+
+            if (geometric_shape instanceof Circle) {
+                System.out.print(geometric_shape.toString()+ geometric_shape.findArea() + "\n");
+            }
+            if (geometric_shape instanceof Square) {
+                System.out.print(geometric_shape.toString() + geometric_shape.findArea() + "\n");
+            }
+            if (geometric_shape instanceof Rhombus) {
+                System.out.print(geometric_shape.toString() + geometric_shape.findArea() + "\n");
+            }
+        }
+
+        Scanner userResponse = new Scanner(System.in);
+        System.out.println("Please enter the file name you wish to save the result: ");
+        String file = userResponse.nextLine();
+        try {
+            FileWriter file_writer = new FileWriter(new File(file));
+            BufferedWriter buffered_writer = new BufferedWriter(file_writer);
+            for (GeometricShape geometric_shape : shapes) {
+
+                String doc = "";
+                doc += geometric_shape.toString();
+                if (geometric_shape instanceof Circle)
+                    doc += ((Circle) geometric_shape).findArea();
+                else if (geometric_shape instanceof Square)
+                    doc += ((Square) geometric_shape).findArea();
+                else if (geometric_shape instanceof Rhombus) {
+                    doc += ((Rhombus) geometric_shape).findArea();
+                }
+                doc += "\n";
+
+                buffered_writer.write(doc);
+            }
+            buffered_writer.close();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        System.out.println("Writing to file is completed.");
+        System.out.println("Thank you. Goodbye!");
+    }
+}
+
+public class Rhombus extends GeometricShape {
+    private double diagonal1;
+    private double diagonal2;
+
+    Rhombus() {
+        diagonal1 = 5;
+        diagonal2 = 7;
+    }
+
+    public double getDiagonal1() {
+        return diagonal1;
+    }
+
+    public void setDiagonal1(double diagonal1) {
+        this.diagonal1 = diagonal1;
+    }
+
+    public double getDiagonal2() {
+        return diagonal2;
+    }
+
+    public void setDiagonal2(double diagonal2) {
+        this.diagonal2 = diagonal2;
+    }
+
+    public double findArea() {
+        return (this.diagonal1 * this.diagonal2) / 2;
+    }
+
+    @Override
+    public String toString() {
+        return "The Area of the Rhombus is: ";
+    }
+
+}
+
+public class Square extends GeometricShape {
+    private double side;
+
+    Square() {
+        this.side = 5.3;
+    }
+
+    public double getSide() {
+        return side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
+
+    public double findArea() {
+        return this.side * this.side;
+    }
+
+    @Override
+    public String toString() {
+        return "The Area of the Square is: ";
+    }
+
+}
+
+public class Circle extends GeometricShape {
+    private double radius;
+
+    Circle() {
+        super();
+        this.radius = 3;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    public double findArea() {
+        return Math.PI * this.radius * this.radius;
+    }
+
+    @Override
+    public String toString() {
+        return "The Area of the Circle is: ";
+    }
+
+}
+
+public abstract class GeometricShape {
+    private String color;
+
+    GeometricShape() {
+        this.color = "blue";
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public abstract double findArea();
+
+    @Override
+    public String toString() {
+        return "Geometric Shape color is " + color;
+    }
+}
