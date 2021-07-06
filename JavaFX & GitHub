@@ -1,0 +1,48 @@
+JavaFx & GitHub
+
+  To begin a package in Java is used to group classes together that have any sort of relation.
+The packages are divided into two categories which consist of build-in-packages which are created
+from Java API and user-defined-packages which allow a user to create his or her own packages
+(W3Schools). Using Java Package has many advantages. For example, it is good to group related
+classes because it makes it easier to locate classes that are related to each other. In addition to that,
+using packages makes it easier to provide access control and keep consistent naming conventions
+making it easier for the programmer to work with (Jyothi, 2018).
+
+  Going further, A JAR File in Java stands for Java Archive. It is a file in the ZIP format that
+is used to group many files into one folder. A user might want to use a JAR file for data
+compression, decompressing, archiving, and archive unpacking. It is very good to use for our
+Object-Oriented Programming class when there is more than one file needed to submit to keep it
+organized and in one place. To create such file, one could open a command prompt window and do
+the following: jar cf jar-file input-file(s) (Oracle, 2020).
+
+  JavaFX is an open-source Java based framework that is designed to provide Java
+programmers with an ability to develop rich applications that can run across a wide variety of
+devices. The intention of JavaFX is to replace Swing as the standard Graphical User Interface
+library for Java. Some of the key features that JavaFX has consist of the following: Java APIs,
+Prism, FXML and Scene Builder, WebView, Built-in UI controls and CSS, high-performance
+media engine, and much more. The framework can be used to create graphical user interfaces on
+desktop, web, mobile platforms and much more. Some downsides of JavaFX though include a
+smaller community support when comparing to Swing and the startup time of the application is a
+little longer than the one for Swing applications (Oracle, 2013).
+
+  GitHub is a code hosting platform that many programmers use for version control and
+collaboration. Many programmers use it to work with others on projects. It is a great platform that
+allows a user to create repositories and store all files on there. One can create files on GitHub
+directly in the repository or push them into the repository using a command line function. Using
+GitHub is pretty simple, and it brings many advantages for those who work in the programming
+world. It is the best for collaboration and contribution to open-source projects. It is a very good
+place to store a portfolio a student creates at school to show off to future employers (GitHub,
+2020).
+
+
+Works Cited
+Hello world. (2020, July 24). Retrieved March 15, 2021, from
+https://guides.github.com/activities/hello-world/#what
+Java packages. (n.d.). Retrieved March 15, 2021, from
+https://www.w3schools.com/java/java_packages.asp
+Jyothi, V. (2018). Advantages of using packages in Java. Retrieved March 15, 2021, from
+https://www.tutorialspoint.com/Advantages-of-using-packages-in-Java
+Oracle. (2020). Using jar files: The basics. Retrieved March 15, 2021, from
+https://docs.oracle.com/javase/tutorial/deployment/jar/basicsindex.html
+Release: Javafx 2.2.21. (2013, March 14). Retrieved March 15, 2021, from
+https://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm
