@@ -1,8 +1,7 @@
 /*
 This program uses a CarbonFootprint interface. This program calculates appropriate carbon
 footprint for each class.
-Author: Adrianna Regulski
- */
+*/
 
 import java.util.ArrayList;
 import java.util.Iterator;
