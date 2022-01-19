@@ -53,15 +53,5 @@ public class Main {
 
 
 
-        /*
-        int array[] = new int[100000];
-        int target = 777777;
-
-        for(int i = 0; i < array.length; i++){
-            array[i] = i;
-        }
-
-    }
-
-         */
-
+    
+       
